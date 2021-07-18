@@ -14,8 +14,8 @@
     position: relative;
     top: -3px;
     box-shadow: 0 3px #333;
+    margin: 5px 5px 5px 5px;
 }
 .choices:hover{
     opacity: .75;
 }
-  
