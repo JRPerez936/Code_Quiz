@@ -60,6 +60,7 @@ var questions = [
       
       var questionButton = document.createElement("button");
       questionButton.textContent =choices[i];
+      
       questionListItem.append(questionButton);
       optionListEl.append(questionListItem);
     }
