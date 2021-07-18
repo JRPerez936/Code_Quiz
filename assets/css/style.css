@@ -10,8 +10,17 @@ header a{
     font-size: 20px;
     text-decoration: none;
 }
+.question{
+    text-align: center;
+}
 .option-list{
     list-style: none;
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+}
+.question-result{
+    text-align: center;
 }
 .choices{
     outline: none;
