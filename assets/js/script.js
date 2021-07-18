@@ -16,7 +16,8 @@ var questions = [
   var optionListEl = document.querySelector("#option-list");
   var questionResultEl = document.querySelector("#question-result");
   var timerEl = document.querySelector("#timer");
-  
+  var introductionEl = document.querySelector("#intro");
+
   var questionIndex = 0;
   var correctCount = 0;
   
@@ -91,7 +92,7 @@ var questions = [
     setTimeout(nextQuestion, 2000);
   }
   function startQuiz(){
-      
+    introductionEl.remove();
+    renderQuestion();
+    optionListEl.addEventListener("click", checkAnswer);
   }
-  renderQuestion();
-  optionListEl.addEventListener("click", checkAnswer);

@@ -10,8 +10,18 @@ header a{
     font-size: 20px;
     text-decoration: none;
 }
+
+.intro{
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
 .question{
     text-align: center;
+    font-size: 45px;
+    font-weight: bold;
 }
 .option-list{
     list-style: none;
