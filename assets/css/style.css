@@ -4,4 +4,18 @@
 .option-list{
     list-style: none;
 }
+.choices{
+    outline: none;
+    border: none;
+    display: inline-block;
+    color: #fff;
+    background-color: #3f285b;
+    border-radius: 12px;
+    position: relative;
+    top: -3px;
+    box-shadow: 0 3px #333;
+}
+.choices:hover{
+    opacity: .75;
+}
   

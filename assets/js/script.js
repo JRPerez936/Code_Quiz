@@ -59,8 +59,9 @@ var questions = [
       questionListItem.className = "question-choices";
       
       var questionButton = document.createElement("button");
+      questionButton.className ="choices";
       questionButton.textContent =choices[i];
-      
+
       questionListItem.append(questionButton);
       optionListEl.append(questionListItem);
     }
