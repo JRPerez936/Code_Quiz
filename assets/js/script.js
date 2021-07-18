@@ -90,6 +90,8 @@ var questions = [
     }
     setTimeout(nextQuestion, 2000);
   }
-  
+  function startQuiz(){
+      
+  }
   renderQuestion();
   optionListEl.addEventListener("click", checkAnswer);
