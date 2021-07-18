@@ -31,7 +31,7 @@ var questions = [
   
   function updateTime() {
     time--;
-    timerEl.textContent = time;
+    timerEl.textContent ="Time: " + time;
     if (time <= 0) {
       endQuiz();
     }
