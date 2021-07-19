@@ -27,7 +27,13 @@ var questions = [
   function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
-    body.innerHTML = "Game over, You scored " + correctCount;
+    body.innerHTML = "<p id='score-response' class='score-response'></p><form id='score-save'></form>"
+    var response = document.querySelector("#score-response");
+    var userEntry = document.getElementById('score-save');
+    response.innerHTML= "Game over, You scored: " + correctCount + ". Enter Your Initials";
+    userEntry.insertAdjacentHTML("afterbegin", "<input type = 'text' name = 'userInit' placeholder = 'Enter initials here' />")
+
+    
   }
   
   function updateTime() {
@@ -95,4 +101,17 @@ var questions = [
     introductionEl.remove();
     renderQuestion();
     optionListEl.addEventListener("click", checkAnswer);
+  }
+  function highScoreHandler(){
+      var userInput = document.querySelector("input[name='userInit']").nodeValue;
+      if(!userInput){
+        alert("You need to fill out your initials!");
+        return false;
+      }
+      else{
+          var highScore = {
+              name: userInput,
+              score: correctCount
+          }
+      }
   }
