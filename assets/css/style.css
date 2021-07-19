@@ -47,3 +47,6 @@ header a{
 .choices:hover{
     opacity: .75;
 }
+.score-response{
+    text-align: center;
+}

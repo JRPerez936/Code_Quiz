@@ -17,22 +17,25 @@ var questions = [
   var questionResultEl = document.querySelector("#question-result");
   var timerEl = document.querySelector("#timer");
   var introductionEl = document.querySelector("#intro");
+  var highScoreList = document.querySelector('#hsList');
 
   var questionIndex = 0;
   var correctCount = 0;
   
+  var scores =[];
+
   var time = 50;
   var intervalId;
   
   function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
-    body.innerHTML = "<p id='score-response' class='score-response'></p><form id='score-save'></form>"
+    body.innerHTML = "<h1 id='score-response' class='score-response'></h1><form id='score-save'></form>"
     var response = document.querySelector("#score-response");
     var userEntry = document.getElementById('score-save');
     response.innerHTML= "Game over, You scored: " + correctCount + ". Enter Your Initials";
     userEntry.insertAdjacentHTML("afterbegin", "<input type = 'text' name = 'userInit' placeholder = 'Enter initials here' />")
-
+    userEntry.insertAdjacentHTML("beforeend", "<button onclick = 'highScoreHandler()'>Save</button>")
     
   }
   
@@ -97,21 +100,49 @@ var questions = [
     }
     setTimeout(nextQuestion, 2000);
   }
+
   function startQuiz(){
     introductionEl.remove();
     renderQuestion();
     optionListEl.addEventListener("click", checkAnswer);
   }
+
   function highScoreHandler(){
-      var userInput = document.querySelector("input[name='userInit']").nodeValue;
+      event.preventDefault();
+      var userInput = document.querySelector("input[name='userInit']").value;
       if(!userInput){
         alert("You need to fill out your initials!");
         return false;
       }
+      
       else{
-          var highScore = {
+          var highScoreObj = {
               name: userInput,
               score: correctCount
-          }
+            };
+            createHighScoreLs(highScoreObj);
+            alert("name & score saved!");
+      }
+  }
+  function createHighScoreLs(highScoreObj){
+    var highScoreLs = document.createElement("li");
+    highScoreLs.className = "high-scores";
+    highScoreLs.innerHTML = "<h3 class ='User'>" + highScoreObj.name +" - " + highScoreObj.score + "</h3>";
+    scores.push(highScoreObj);
+    saveScores();
+  }
+  function saveScores(){
+    localStorage.setItem("scores", JSON.stringify(scores)); 
+  }
+  function loadScores(){
+      var savedScores = localStorage.getItem("scores");
+      if (!savedScores){
+          scores = [];
+          return false;
+      }
+
+      saveScores = JSON.parse(savedScores);
+      for(var i=0; i<savedScores.length; i++){
+          createHighScoreLs(savedScores[i]);
       }
   }
