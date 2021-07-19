@@ -30,7 +30,7 @@ var questions = [
   function endQuiz() {
     clearInterval(intervalId);
     var body = document.body;
-    body.innerHTML = "<h1 id='score-response' class='score-response'></h1><form id='score-save'></form>"
+    body.innerHTML = "<div class= 'response' ><h1 id='score-response' class='score-response'></h1><form id='score-save'></form></div>"
     var response = document.querySelector("#score-response");
     var userEntry = document.getElementById('score-save');
     response.innerHTML= "Game over, You scored: " + correctCount + ". Enter Your Initials";
