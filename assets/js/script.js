@@ -121,7 +121,7 @@ var questions = [
               score: correctCount
             };
             createHighScoreLs(highScoreObj);
-            alert("name & score saved!");
+            alert("name & score saved!");     
       }
   }
   function createHighScoreLs(highScoreObj){
@@ -130,6 +130,7 @@ var questions = [
     highScoreLs.innerHTML = "<h3 class ='User'>" + highScoreObj.name +" - " + highScoreObj.score + "</h3>";
     scores.push(highScoreObj);
     saveScores();
+    console.log(scores);
   }
   function saveScores(){
     localStorage.setItem("scores", JSON.stringify(scores)); 
