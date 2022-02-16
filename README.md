@@ -1,5 +1,5 @@
 
-# WK4C-Code_Quiz
+# Code_Quiz
 
 This is a website containing my quiz generator. It has been designed after the mockup shown as well as some of the challenges from the week 
 and contains multiple functions. When you click the start function the questions show up and a timer counts down in the top right. 
